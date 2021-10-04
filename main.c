@@ -1,55 +1,54 @@
 #include <stdio.h>
 #include <limits.h>
-float adder(float a, float b);
-float num1,num2;
+#include "math.h"
 
 
-float adder(float n1,float n2){
-    float res= n1 +n2;
-    return res;
 
-}
+
+
+char opp;
+float num1 ,num2,res;
+
+
 
 int main() {
-    int a = 7; char opp;
+
     printf("Enter mathematical expression: ");
-    num1 = scanf("%f",num1);
-    opp= scanf("%c",opp);
-    num2 = scanf("%f",num2);
+    scanf("%f%c%f",&num1,&opp,&num2);
 
 
-    do {
 
-
+    do{
         switch (opp) {
-            float x;
             case '+':
+                printf("%f",adder(num1,num2));
 
-                x = adder(num1,num2);
-                printf("Result: %f",x);
-
+                break;
+            case '-':res = subtract(num1,num2);
                 break;
 
 
-            default:
-                printf("Result: ",x);
-                return x;
+            case '*':res = multiply(num1,num2);
+                break;
+            case '/': res = divide(num1,num2);
+               break;
+            case '^':res = power(num1,num2);
+                break;
+
+
+            case '$':res = rpower(num1,num2);
+                break;
+            default:printf("Enter valid operation");
+                     break;
 
         }
-
-
-        break;
-    }
-    while(opp != ' ');{
-
+        printf("%f",res);
+    }while(opp =='+' && opp == '-' && opp==  '*' && opp == '/' && opp == '^' && opp == '$' );{
         return 0;
-
-
-
     }
-
-
-
-
-
 }
+
+
+
+
+
